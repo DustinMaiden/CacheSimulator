@@ -1,9 +1,6 @@
 /* Name:	Dustin Maiden
  * CS login:	maiden
  * Section:    	2
- *
- *
- *
  * csim.c - A cache simulator that can replay traces from Valgrind
  *     and output statistics such as number of hits, misses, and
  *     evictions.  The replacement policy is LRU.
@@ -18,7 +15,6 @@
  *  hit plus an possible eviction.
  *
  * The function printSummary() is given to print output.
- * Please use this function to print the number of hits, misses and evictions.
  * This is crucial for the driver to evaluate your work.
  */
 #include <getopt.h>
@@ -66,15 +62,7 @@ typedef unsigned long long int mem_addr_t;
 mem_addr_t set_mask = 0; //global set mask
 
 /* Type: Cache line
- * TODO
- *
- * NOTE:
- * You will need to add an extra field to this struct
- * depending on your implementation of the LRU policy for evicting a cache line
- *
- * For example, to use a linked list based LRU,
- * you might want to have a field "struct cache_line * next" in the struct
- */
+  */
 typedef struct cache_line{
 	char valid;
 	mem_addr_t tag;
@@ -122,7 +110,7 @@ void initCache(){
 }
 
 
-/* TODO - COMPLETE THIS FUNCTION
+/*
  * freeCache - free each piece of memory you allocated using malloc
  * inside initCache() function
  */
@@ -136,7 +124,7 @@ void freeCache(){
 }
 
 
-/* TODO - COMPLETE THIS FUNCTION
+/* 
  * accessData - Access data at memory address addr.
  * If it is already in cache, increase hit_count
  * If it is not in cache, bring it in cache, increase miss count.
@@ -195,7 +183,7 @@ void accessData(mem_addr_t addr){
 }
 
 
-/* TODO - FILL IN THE MISSING CODE
+/* 
  * replayTrace - replays the given trace file against the cache
  * reads the input trace file line by line
  * extracts the type of each memory access : L/S/M
